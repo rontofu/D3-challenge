@@ -33,21 +33,6 @@ d3.csv("/assets/data/data.csv").then(function(stateData) {
         data.healthcare = +data.healthcare;
   });
 
-// Add axis labels
-    
-chartGroup.append("text")
-    .attr("transform", "rotate(-90)")
-    .attr("y", 0 - margin.left - 3)
-    .attr("x", 0 - (height / 1.5))
-    .attr("dy", "1em")
-    .attr("class", "axisText")
-    .text("Lacks Healthcare (%)");
-      
-chartGroup.append("text")
-    .attr("transform", `translate(${width / 2.5}, ${height + margin.top + 25})`)
-    .attr("class", "axisText")
-    .text("In Poverty (%)");
-
 // Create scaling functions  
 
     var xLinearScale = d3.scaleLinear()
@@ -101,6 +86,21 @@ chartGroup.append("text")
             return data.abbr
         });
 
+// Add axis labels
+    
+chartGroup.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left - 3)
+    .attr("x", 0 - (height / 1.5))
+    .attr("dy", "1em")
+    .attr("class", "axisText")
+    .text("Lacks Healthcare (%)");
+      
+chartGroup.append("text")
+    .attr("transform", `translate(${width / 2.5}, ${height + margin.top + 25})`)
+    .attr("class", "axisText")
+    .text("In Poverty (%)");
+    
 // Implement tooltip (bonus)
 
     var toolTip = d3.tip()
